@@ -54,7 +54,7 @@ void lampeggia( int led, int  rit, int c)
 void RichiestaValori()
 {
   Serial.begin(9600);
-  Serial.print ("Quanti lampeggi verdi vuoi?");
+  Serial.println ("Quanti lampeggi verdi vuoi?");
   while(Serial.available()== 0){};
   numlampeggi = Serial.readString().toInt();
 }
