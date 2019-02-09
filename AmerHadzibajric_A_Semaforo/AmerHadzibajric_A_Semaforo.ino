@@ -2,14 +2,20 @@ int numlampeggi = 0;
 int lamp = 0;
 int dverde = 0;
 int dgiallo = 0;
+int verde1 = 13;
+int giallo1 = 12;
+int rosso1 = 10;
+int verde2 = 5;
+int giallo2 = 4;
+int rosso2 = 2;
 void setup() {
   // put your setup code here, to run once:
-  pinMode(13,OUTPUT); //verde
-  pinMode(12,OUTPUT); //giallo
-  pinMode(10,OUTPUT); //rosso
-  pinMode(5,OUTPUT); //verde
-  pinMode(4,OUTPUT); //giallo
-  pinMode(2,OUTPUT); //rosso
+  pinMode(verde1,OUTPUT); //verde
+  pinMode(giallo1,OUTPUT); //giallo
+  pinMode(rosso1,OUTPUT); //rosso
+  pinMode(verde2,OUTPUT); //verde
+  pinMode(giallo2,OUTPUT); //giallo
+  pinMode(rosso2,OUTPUT); //rosso
   RichiestaValori();
   RichiestaTempoLamp();
   RichiestaVerde();
@@ -18,28 +24,28 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  digitalWrite (13,HIGH);
-  digitalWrite(2,HIGH);
+  digitalWrite (verde1,HIGH);
+  digitalWrite(rosso2,HIGH);
   delay(dverde);
-  lampeggia(13, lamp, numlampeggi);
-  digitalWrite(13,LOW);
-  digitalWrite(12,HIGH);
-  digitalWrite(4,HIGH);
+  lampeggia(verde1, lamp, numlampeggi);
+  digitalWrite(verde1,LOW);
+  digitalWrite(giallo1,HIGH);
+  digitalWrite(giallo2,HIGH);
   delay(dgiallo);
-  digitalWrite(12,LOW);
-  digitalWrite(2,LOW);
-  digitalWrite(4,LOW);
-  digitalWrite(10,HIGH);
-  digitalWrite(5,HIGH);
+  digitalWrite(giallo1,LOW);
+  digitalWrite(rosso2,LOW);
+  digitalWrite(giallo2,LOW);
+  digitalWrite(rosso1,HIGH);
+  digitalWrite(verde2,HIGH);
   delay(dverde);
   lampeggia(5, lamp, numlampeggi);
-  digitalWrite(5,LOW);
-  digitalWrite(4,HIGH);
-  digitalWrite(12,HIGH);
+  digitalWrite(verde2,LOW);
+  digitalWrite(giallo2,HIGH);
+  digitalWrite(giallo1,HIGH);
   delay(dgiallo);
-  digitalWrite(12,LOW);
-  digitalWrite(4,LOW);
-  digitalWrite(10,LOW);
+  digitalWrite(giallo1,LOW);
+  digitalWrite(giallo2,LOW);
+  digitalWrite(rosso1,LOW);
 
 }
 void lampeggia( int led, int  rit, int c)
